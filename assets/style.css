@@ -1,0 +1,25 @@
+.header-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: xx-large;
+}
+
+h2 {
+    font-size: larger;
+}
+
+.hour {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea {
+    flex-basis: auto;
+    min-width: 50%;
+}
