@@ -55,4 +55,14 @@ function updatePlanner(array) {
 
 $("#update-button").click(() => updatePlanner(hours24));
 
+$("#clear-button").click(function() {
+    $(".main-content").find(".hour").find("textarea").attr("placeholder", "");
+    $(".main-content").find(".hour").find("button").remove();
+    updatePlanner(hours24);
+});
+
 generateHours(hours24)
+
+// console.log(moment('0100', 'HH').format('HHmm'))
+// console.log(moment('01/25/2020', 'MM/DD/YYYY').format('hh:mmA'))
+// TODO: monspace font for hour-label

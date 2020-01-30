@@ -94,3 +94,9 @@ textarea {
     flex-basis: auto;
     min-width: 50%;
 }
+
+#clear-button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
