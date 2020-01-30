@@ -25,3 +25,9 @@ function generateHours(array) {
       $(".main-content").append(hourBlock);
     }
   }
+
+function clearPlaceholder() {
+    $(this).siblings("textarea").attr("placeholder", "");
+    $(this).remove();
+    updatePlanner(hours24);
+}
