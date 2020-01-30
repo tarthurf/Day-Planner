@@ -8,10 +8,15 @@ for (let i = 0; i < 12; i++) {
     hours12.push(i + 1);
 }
 
-// creating object to create entire element to be used in a function
-// TODO: Put this sucker in a function!
-const hourBlock = $("<form>").addClass("hour");
-hourBlock.append($("<span>").addClass("hour-label").text("1:00"));
-hourBlock.append($("<textarea>").attr({id: "", cols: "30", rows: "1"}));
-hourBlock.append($("<button>").text("Update"));
-// $(".main-content").append(hourBlock)
+// This function generates an hour-block element
+function generateHours(array) {
+    const hourBlock = $("<form>").addClass("hour");
+    hourBlock.append($("<span>").addClass("hour-label").text(array[i]));
+    hourBlock.append($("<textarea>").attr({id: "hour" + i ,cols: "30", rows: "1"}));
+    hourBlock.append($("<button>").text("Update"));
+    $(".main-content").append(hourBlock)
+}
+
+// TODO: create local storage to save the hour blocks
+// TODO: create functional update buttons that save the hour block text to local storage
+// 
