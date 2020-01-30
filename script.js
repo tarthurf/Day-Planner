@@ -31,3 +31,20 @@ function clearPlaceholder() {
     $(this).remove();
     updatePlanner(hours24);
 }
+
+function updatePlanner(array) {
+    const toLocalStorage = [];
+    for (let i = 0; i < array.length; i++) {
+        const textArea = $("#hour" + i);
+        const task = textArea.val();
+        if (task !== "") {
+            if (textArea.attr("placeholder") === "") {
+            textArea.parent().append($("<button>").click(clearPlaceholder).text("Remove"));
+            }
+            textArea.attr("placeholder", task);
+            textArea.val("");
+        }
+        toLocalStorage.push(textArea.attr("placeholder"));
+    }
+    localStorage.tasks = JSON.stringify(toLocalStorage)
+}
