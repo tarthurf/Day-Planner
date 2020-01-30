@@ -1,3 +1,7 @@
+body {
+  background-color: grey;
+}
+
 .header-container {
     display: flex;
     flex-direction: column;
@@ -11,14 +15,6 @@ h1 {
 
 h2 {
     font-size: larger;
-}
-
-            #toggle-dark {
-            
-            }
-
-.slider-label {
-
 }
 
 /* The switch - the box around the slider */

@@ -14,13 +14,13 @@
     <div class="header-container">
         <!-- Toggle for dark mode -->
         <label class="switch" id="toggle-dark">
-            <p class="slider-label">Dark Mode</p>
+            <p class="slider-label">Light/Dark</p>
             <input type="checkbox">
             <span class="slider round"></span>
         </label>
         <!-- toggle for 24 hour time format -->
         <label class="switch" id="toggle-24">
-            <p class="slider-label">Time Format</p>
+            <p class="slider-label">12/24</p>
             <input type="checkbox">
             <span class="slider round"></span>
         </label>
@@ -28,15 +28,16 @@
         <h2>Schedule your day with ease</h2>
     </div>
 
+    <!-- this is where the hour blocks will be generated -->
     <div class="main-content">
         <form class="hour" action="">
-            <h2 class="time">12:00</h2>
+            <span class="hour-label">12:00</span>
             <textarea name="" id="" cols="30" rows="1"></textarea>
             <button>Update</button>
         </form>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
 </body>
 
