@@ -10,13 +10,18 @@ for (let i = 0; i < 12; i++) {
 
 // This function generates an hour-block element
 function generateHours(array) {
-    const hourBlock = $("<form>").addClass("hour");
-    hourBlock.append($("<span>").addClass("hour-label").text(array[i]));
-    hourBlock.append($("<textarea>").attr({id: "hour" + i ,cols: "30", rows: "1"}));
-    hourBlock.append($("<button>").text("Update"));
-    $(".main-content").append(hourBlock)
-}
-
-// TODO: create local storage to save the hour blocks
-// TODO: create functional update buttons that save the hour block text to local storage
-// 
+    // TODO: look up ternary operators or rewrite so it makes sense, dummy
+    // const tasks = localStorage.tasks ? JSON.parse(localStorage.tasks) : false
+    let tasks;
+    if (localStorage.tasks) tasks = JSON.parse(localStorage.tasks)
+    else tasks = false
+    for (let i = 0; i < array.length; i++) {
+      const hourBlock = $("<div>").addClass("hour");
+      hourBlock.append($("<span>").addClass("hour-label").text(array[i]));
+      hourBlock.append($("<textarea>").attr({id: "hour" + i, cols: "30", rows: "1", placeholder: tasks ? tasks[i] : ""}));
+      if (tasks && tasks[i] !== "") {
+        hourBlock.append($("<button>").click(clearPlaceholder).text("Remove"));
+      }
+      $(".main-content").append(hourBlock);
+    }
+  }
