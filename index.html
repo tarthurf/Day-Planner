@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,35 +10,19 @@
     <!-- <link rel="stylesheet" href="assets/reset.css"> -->
     <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron|Ubuntu&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <div class="header-container">
-        <!-- Toggle for dark mode -->
-        <label class="switch" id="toggle-dark">
-            <p class="slider-label">Light/Dark</p>
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
-        <!-- toggle for 24 hour time format -->
-        <label class="switch" id="toggle-24">
-            <p class="slider-label">12/24</p>
-            <input type="checkbox">
-            <span class="slider round"></span>
-        </label>
-        <h1>Day Planner</h1>
+<body class="background-image">
+    
+    <div class="header-container underline-bold">
+        <h1 class="underline">Day Planner</h1>
         <h2>Schedule your day with ease</h2>
         <!-- this button updates the entire planner and saves the data to local storage to be retrieved on refresh -->
-        <button id="update-button">Update Planner</button>
+        <!-- <button id="update-button">Update Planner</button> -->
     </div>
     <div class="main-content">
-
-    <!-- this is where the hour blocks will be generated -->
-        <!-- <form class="hour" action="">
-            <span class="hour-label">12:00</span>
-            <textarea name="" id="" cols="30" rows="1"></textarea>
-            <button>Update</button>
-        </form> -->
+        <button id="update-button">Update Planner</button>
     </div>
     <div id="clear-button-container">    
         <button id="clear-button">Clear Planner</button>
@@ -46,6 +31,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js" integrity="sha256-H9jAz//QLkDOy/nzE9G4aYijQtkLt9FvGmdUTwBk6gs=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="script.js"></script>
-</body>
+</body c>
 
 </html>

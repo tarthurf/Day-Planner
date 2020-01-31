@@ -24,7 +24,7 @@ function generateHours(array) {
       hourBlock.append($("<span>").addClass("hour-label").text(array[i]));
       hourBlock.append($("<textarea>").attr({id: "hour" + i, cols: "30", rows: "1", placeholder: tasks ? tasks[i] : ""}));
       if (tasks && tasks[i] !== "") {
-        hourBlock.append($("<button>").click(clearPlaceholder).text("Remove"));
+        hourBlock.append($("<button>").attr("class", "remove-button").click(clearPlaceholder).text("Remove"));
       }
       $(".main-content").append(hourBlock);
     }
