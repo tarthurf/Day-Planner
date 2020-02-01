@@ -12,6 +12,18 @@ for (let i = 0; i < 12; i++) {
     hours12.push(i + 1);
 }
 
+// update html with current time
+function updateTime() {
+    const date = moment().format('MMMM Do YYYY, h:mm:ss A');
+    $("#date").text(date);
+}
+
+// interval timer running the calender and clock
+updateTime();
+setInterval(function() {
+    updateTime();
+}, 1000);
+
 // This function generates an hour-block element
 function generateHours(array) {
     // TODO: look up ternary operators or rewrite so it makes sense, dummy
@@ -24,7 +36,7 @@ function generateHours(array) {
       hourBlock.append($("<span>").addClass("hour-label").text(array[i]));
       hourBlock.append($("<textarea>").attr({id: "hour" + i, cols: "30", rows: "1", placeholder: tasks ? tasks[i] : ""}));
       if (tasks && tasks[i] !== "") {
-        hourBlock.append($("<button>").attr("class", "remove-button").click(clearPlaceholder).text("Remove"));
+        hourBlock.append($("<button>").addClass("remove-button").click(clearPlaceholder).text("Remove"));
       }
       $(".main-content").append(hourBlock);
     }
@@ -43,7 +55,7 @@ function updatePlanner(array) {
         const task = textArea.val();
         if (task !== "") {
             if (textArea.attr("placeholder") === "") {
-            textArea.parent().append($("<button>").click(clearPlaceholder).text("Remove"));
+            textArea.parent().append($("<button>").addClass("remove-button").click(clearPlaceholder).text("Remove"));
             }
             textArea.attr("placeholder", task);
             textArea.val("");
@@ -64,5 +76,5 @@ $("#clear-button").click(function() {
 generateHours(hours24)
 
 // console.log(moment('0100', 'HH').format('HHmm'))
-// console.log(moment('01/25/2020', 'MM/DD/YYYY').format('hh:mmA'))
-// TODO: monspace font for hour-label
+// console.log(moment('01/25/2020', 'MM/DD/YYYY').format('HHmm'))
+// TODO: Add date and clock to top of app
