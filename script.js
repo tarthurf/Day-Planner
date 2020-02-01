@@ -1,4 +1,6 @@
 // Declaring global objects
+const currentHour = moment().format('HH[00]');
+
 const hours24 = [];
 
 for (let i = 0; i < 24; i++) {
@@ -11,6 +13,7 @@ const hours12 = [];
 for (let i = 0; i < 12; i++) {
     hours12.push(i + 1);
 }
+
 
 // update html with current time
 function updateTime() {
@@ -32,15 +35,20 @@ function generateHours(array) {
     if (localStorage.tasks) tasks = JSON.parse(localStorage.tasks)
     else tasks = false
     for (let i = 0; i < array.length; i++) {
-      const hourBlock = $("<div>").addClass("hour");
-      hourBlock.append($("<span>").addClass("hour-label").text(array[i]));
-      hourBlock.append($("<textarea>").attr({id: "hour" + i, cols: "30", rows: "1", placeholder: tasks ? tasks[i] : ""}));
-      if (tasks && tasks[i] !== "") {
-        hourBlock.append($("<button>").addClass("remove-button").click(clearPlaceholder).text("Remove"));
-      }
-      $(".main-content").append(hourBlock);
+        const hourBlock = $("<div>").addClass("hour");
+        hourBlock.append($("<span>").addClass("hour-label").text(array[i]));
+        hourBlock.append($("<textarea>").attr({id: "hour" + i, cols: "30", rows: "1", placeholder: tasks ? tasks[i] : ""}));
+        if (tasks && tasks[i] !== "") {
+            hourBlock.append($("<button>").addClass("remove-button").click(clearPlaceholder).text("Remove"));
+        }
+        $(".main-content").append(hourBlock);
+        const hourLabel = hourBlock.children(".hour-label").text()
+        const hourBackground = hourBlock.children("textarea");
+        if (hourLabel < currentHour) {hourBackground.css("background-color", "grey")}
+        else if (hourLabel > currentHour) {hourBackground.css("background-color", "seagreen")}
+        else {hourBackground.css("background-color", "indianred")}
     }
-  }
+}
 
 function clearPlaceholder() {
     $(this).siblings("textarea").attr("placeholder", "");
@@ -55,7 +63,7 @@ function updatePlanner(array) {
         const task = textArea.val();
         if (task !== "") {
             if (textArea.attr("placeholder") === "") {
-            textArea.parent().append($("<button>").addClass("remove-button").click(clearPlaceholder).text("Remove"));
+                textArea.parent().append($("<button>").addClass("remove-button").click(clearPlaceholder).text("Remove"));
             }
             textArea.attr("placeholder", task);
             textArea.val("");
@@ -74,6 +82,19 @@ $("#clear-button").click(function() {
 });
 
 generateHours(hours24)
+
+
+
+
+// function testColorUpdate(array) {
+//     for (let i = 0; i < array.length; i++) {
+//         const element = array[i];
+        
+//     }
+//     if $(".main-content").find(".hour").
+//     }
+// }
+// testColorUpdate(hours24)
 
 // console.log(moment('0100', 'HH').format('HHmm'))
 // console.log(moment('01/25/2020', 'MM/DD/YYYY').format('HHmm'))
