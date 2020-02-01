@@ -130,12 +130,16 @@ textarea {
   border-radius: 5px;
 }
 
-
-
 .underline {
   border-bottom: 2px solid rgb(75, 74, 74);
 }
 
 .underline-bold {
   border-bottom: 4px solid rgb(27, 27, 27);
+}
+
+@media only screen and (max-width: 768px) {
+  .background-image {
+    background-attachment: fixedz;
+  }
 }
