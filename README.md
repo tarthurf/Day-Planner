@@ -1,6 +1,6 @@
 # Day-Planner
 
-![alt text](assets\images\sunrise-gradient-purple-orange-red-sky_3442-6.jpg)
+![alt text](./assets/images/day-planner-screenshot.png)
 
 ## WHO MADE THIS?
 
